@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Lock, Unlock } from "lucide-react";
 import { type Dimensions } from "../../lib/image";
+import useNumberFieldState from "../../hooks/Usenumberfieldstate";
+import Button from "../Button";
 
 type Props = {
   dimensions: Dimensions;
@@ -8,38 +10,6 @@ type Props = {
   onWidthChange: (value: number) => void;
   onHeightChange: (value: number) => void;
   onToggleLock: () => void;
-};
-
-const useNumberFieldState = (
-  value: number,
-  onChange: (value: number) => void,
-) => {
-  const [text, setText] = useState(String(value));
-
-  useEffect(() => {
-    setText(String(value));
-  }, [value]);
-
-  const handleChange = (raw: string) => {
-    if (raw !== "" && !/^\d+$/.test(raw)) return;
-
-    setText(raw);
-
-    if (raw === "") return;
-
-    const parsed = Number(raw);
-    if (!Number.isNaN(parsed) && parsed > 0) {
-      onChange(parsed);
-    }
-  };
-
-  const handleBlur = () => {
-    if (text === "" || Number(text) <= 0) {
-      setText(String(value));
-    }
-  };
-
-  return { text, handleChange, handleBlur };
 };
 
 const DimensionFields = ({
@@ -68,20 +38,22 @@ const DimensionFields = ({
         </div>
       </label>
 
-      <button
-        type="button"
-        aria-label={
+      <Button
+        variant="lock"
+        onClick={onToggleLock}
+        ariaLabel={
           lockAspect ? "Odemknout poměr stran" : "Zamknout poměr stran"
         }
-        onClick={onToggleLock}
-        className={`ir-lock-btn ${lockAspect ? "is-locked" : ""}`}
-      >
-        {lockAspect ? (
-          <Lock size={16} strokeWidth={1.8} />
-        ) : (
-          <Unlock size={16} strokeWidth={1.8} />
-        )}
-      </button>
+        icon={
+          lockAspect ? (
+            <Lock size={16} strokeWidth={1.8} />
+          ) : (
+            <Unlock size={16} strokeWidth={1.8} />
+          )
+        }
+        className={lockAspect ? "is-locked" : ""}
+        children={undefined}
+      />
 
       <label className="ir-field">
         <span className="ir-field-label">Výška</span>

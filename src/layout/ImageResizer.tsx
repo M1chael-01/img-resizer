@@ -5,14 +5,15 @@ import useImageFile from "../hooks/useImageFile";
 import useDimensions from "../hooks/useDimensions";
 import useImageExport from "../hooks/useImageExport";
 
-import Dropzone from "../components/ImageResizer/DropZone";
-import { EditorHeader } from "../components/EditorHeader";
+import EmptyState from "../components/ImageResizer/EmptyState";
+import EditorHeader from "../components/EditorHeader";
 import { ImagePreview } from "../components/ImageResizer/Imagepreview";
 import { FileInfo } from "../components/ImageResizer/FileInfo";
 import DimensionFields from "../components/ImageResizer/Dimensionfields";
-import { PresetButtons } from "../components/ImageResizer/PresetButtons";
+import PresetButtons from "../components/ImageResizer/PresetButtons";
+import Button from "../components/Button";
 
-export const ImageResizer = () => {
+const ImageResizer = () => {
   const { file, previewUrl, original, loadFile, reset } = useImageFile();
 
   const {
@@ -28,15 +29,7 @@ export const ImageResizer = () => {
   const { isExporting, download } = useImageExport();
 
   if (!file || !previewUrl || !original) {
-    return (
-      <div className="ir-wrap">
-        <h1 className="ir-title">Změnit velikost obrázku</h1>
-        <p className="ir-subtitle">
-          Nahraj obrázek a uprav jeho rozměry přesně podle potřeby.
-        </p>
-        <Dropzone onFileSelected={loadFile} />
-      </div>
-    );
+    return <EmptyState onFileSelected={loadFile} />;
   }
 
   return (
@@ -59,16 +52,18 @@ export const ImageResizer = () => {
 
           <PresetButtons activePreset={activePreset} onSelect={applyPreset} />
 
-          <button
-            type="button"
-            className="ir-download-btn"
+          <Button
+            variant="download"
             onClick={() => download(previewUrl, dimensions)}
             disabled={isExporting}
+            fullWidth
           >
             {isExporting ? "Zpracovávám…" : "Stáhnout upravený obrázek"}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
   );
 };
+
+export default ImageResizer;

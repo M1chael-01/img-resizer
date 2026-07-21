@@ -1,44 +1,39 @@
-import React, { useRef, useState, type DragEvent } from "react";
+import React from "react";
 import { Upload } from "lucide-react";
 import { ACCEPTED_FORMATS_LABEL } from "../../constants";
+import useFileDropzone from "../../hooks/useFileDropzone";
+import FileInput from "./FileInput";
+import Button from "../Button";
 
 type Props = {
   onFileSelected: (file: File) => void;
 };
 
 const Dropzone = ({ onFileSelected }: Props) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleDrop = (e: DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-    const f = e.dataTransfer.files?.[0];
-    if (f) onFileSelected(f);
-  };
+  const {
+    isDragging,
+    inputRef,
+    handleDrop,
+    handleDragOver,
+    handleDragLeave,
+    handleFileInput,
+    openFileDialog,
+  } = useFileDropzone(onFileSelected);
 
   return (
     <div
       className={`ir-dropzone ${isDragging ? "is-dragging" : ""}`}
-      onDragOver={(e) => {
-        e.preventDefault();
-        setIsDragging(true);
-      }}
-      onDragLeave={() => setIsDragging(false)}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      onClick={() => inputRef.current?.click()}
+      onClick={openFileDialog}
       role="button"
       tabIndex={0}
     >
-      <input
-        ref={inputRef}
-        type="file"
+      <FileInput
+        inputRef={inputRef}
+        onFileInput={handleFileInput}
         accept="image/*"
-        hidden
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) onFileSelected(f);
-        }}
       />
 
       <div className="ir-icon">
@@ -50,16 +45,15 @@ const Dropzone = ({ onFileSelected }: Props) => {
         <span className="ir-browse">vyber soubor</span>
       </p>
 
-      <button
-        type="button"
-        className="ir-select-btn"
+      <Button
+        variant="primary"
         onClick={(e) => {
           e.stopPropagation();
-          inputRef.current?.click();
+          openFileDialog();
         }}
       >
         Vybrat obrázek
-      </button>
+      </Button>
 
       <p className="ir-formats">{ACCEPTED_FORMATS_LABEL}</p>
     </div>

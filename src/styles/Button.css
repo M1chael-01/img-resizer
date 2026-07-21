@@ -1,0 +1,312 @@
+.ir-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: inherit;
+  user-select: none;
+  position: relative;
+}
+
+.ir-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ir-btn:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+.ir-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ir-btn-text {
+  display: inline-block;
+}
+
+.ir-btn-full-width {
+  width: 100%;
+}
+
+.ir-btn-primary {
+  background: #000000;
+  color: #ffffff;
+}
+
+.ir-btn-primary:hover:not(:disabled) {
+  background: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.ir-btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.ir-btn-secondary {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.ir-btn-secondary:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+
+.ir-btn-secondary:active:not(:disabled) {
+  background: #cccccc;
+}
+
+.ir-btn-outline {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.ir-btn-outline:hover:not(:disabled) {
+  background: #000000;
+  color: #ffffff;
+}
+
+.ir-btn-outline:active:not(:disabled) {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.ir-reset-btn {
+  background: #f0f0f0;
+  color: #4a4a4a;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.ir-reset-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+  color: #000000;
+}
+
+.ir-download-btn {
+  background: #000000;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.ir-download-btn:hover:not(:disabled) {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ir-download-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.ir-lock-btn {
+  background: #f0f0f0;
+  color: #6a6a6a;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.ir-lock-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+  color: #000000;
+}
+
+.ir-lock-btn.is-locked {
+  background: #000000;
+  color: #ffffff;
+}
+
+.ir-lock-btn.is-locked:hover:not(:disabled) {
+  background: #1a1a1a;
+  transform: scale(1.05);
+}
+
+.ir-select-btn {
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.ir-select-btn:hover:not(:disabled) {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.ir-select-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .ir-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .ir-download-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .ir-lock-btn {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  .ir-select-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .ir-reset-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@keyframes ir-btn-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ir-btn-loading {
+  animation: ir-btn-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ir-btn-primary {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ir-btn-primary:hover:not(:disabled) {
+    background: #e6e6e6;
+  }
+
+  .ir-btn-secondary {
+    background: #2a2a2a;
+    color: #e6e6e6;
+  }
+
+  .ir-btn-secondary:hover:not(:disabled) {
+    background: #3a3a3a;
+  }
+
+  .ir-btn-outline {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .ir-btn-outline:hover:not(:disabled) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ir-reset-btn {
+    background: #2a2a2a;
+    color: #b0b0b0;
+  }
+
+  .ir-reset-btn:hover:not(:disabled) {
+    background: #3a3a3a;
+    color: #ffffff;
+  }
+
+  .ir-download-btn {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ir-download-btn:hover:not(:disabled) {
+    background: #e6e6e6;
+  }
+
+  .ir-lock-btn {
+    background: #2a2a2a;
+    color: #9a9a9a;
+  }
+
+  .ir-lock-btn:hover:not(:disabled) {
+    background: #3a3a3a;
+    color: #ffffff;
+  }
+
+  .ir-lock-btn.is-locked {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ir-lock-btn.is-locked:hover:not(:disabled) {
+    background: #e6e6e6;
+  }
+
+  .ir-select-btn {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ir-select-btn:hover:not(:disabled) {
+    background: #e6e6e6;
+  }
+
+  .ir-btn:focus-visible {
+    outline-color: #ffffff;
+  }
+}
+
+.ir-btn-ghost {
+  background: transparent;
+  color: #000000;
+}
+
+.ir-btn-ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .ir-btn-ghost {
+    color: #ffffff;
+  }
+
+  .ir-btn-ghost:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
