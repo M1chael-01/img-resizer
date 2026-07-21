@@ -1,0 +1,353 @@
+.ir-wrap {
+  max-width: 780px;
+  margin: -5vh auto;
+  padding: 3rem 1.5rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+  min-height: calc(100vh - 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .ir-wrap {
+    min-height: calc(100vh - 5.25rem);
+  }
+}
+
+.ir-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.ir-subtitle {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #767676;
+}
+
+.ir-dropzone {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 3.5rem 1.5rem;
+  border: 2px dashed #cfcfcf;
+  border-radius: 16px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ir-dropzone:hover {
+  border-color: #111111;
+  background-color: #f0f0f0;
+}
+
+.ir-dropzone.is-dragging {
+  border-color: #111111;
+  background-color: #ececec;
+  transform: scale(1.01);
+}
+
+.ir-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ir-hint {
+  margin: 10px 0;
+  font-size: 0.98rem;
+  color: #333333;
+}
+
+.ir-browse {
+  color: #111111;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.ir-select-btn {
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 0.65rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.ir-select-btn:hover {
+  background-color: #2b2b2b;
+}
+
+.ir-select-btn:active {
+  transform: scale(0.98);
+}
+
+.ir-formats {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  color: #9a9a9a;
+}
+
+.ir-editor-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ir-editor-head .ir-title,
+.ir-editor-head .ir-subtitle {
+  text-align: left;
+}
+
+.ir-reset-btn {
+  border: 1px solid #e2e2e2;
+  background-color: #ffffff;
+  color: #111111;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.ir-reset-btn:hover {
+  border-color: #111111;
+  color: #111111;
+  background-color: #f7f7f7;
+}
+
+.ir-editor {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 680px) {
+  .ir-editor {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+}
+
+.ir-preview {
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.ir-preview-img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+}
+
+.ir-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ir-file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ececec;
+}
+
+.ir-file-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ir-file-meta {
+  font-size: 0.8rem;
+  color: #767676;
+}
+
+.ir-field-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.ir-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ir-field-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #767676;
+}
+
+.ir-field-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  background-color: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ir-field-input:focus-within {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.ir-field-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: #111111;
+  background: transparent;
+  -moz-appearance: textfield;
+}
+
+.ir-field-input input::-webkit-outer-spin-button,
+.ir-field-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ir-unit {
+  font-size: 0.8rem;
+  color: #9a9a9a;
+}
+
+.ir-lock-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 1px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  background-color: #ffffff;
+  color: #9a9a9a;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ir-lock-btn.is-locked {
+  border-color: #111111;
+  color: #111111;
+  background-color: #f0f0f0;
+}
+
+.ir-presets {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ir-preset-btn {
+  flex: 1;
+  border: 1px solid #e2e2e2;
+  background-color: #ffffff;
+  color: #111111;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ir-preset-btn:hover {
+  border-color: #111111;
+  color: #111111;
+}
+
+.ir-preset-btn.is-active {
+  border-color: #111111;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.ir-download-btn {
+  margin-top: 0.25rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.ir-download-btn:hover:not(:disabled) {
+  background-color: #2b2b2b;
+}
+
+.ir-download-btn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.ir-download-btn:disabled {
+  background-color: #cfcfcf;
+  cursor: not-allowed;
+}
