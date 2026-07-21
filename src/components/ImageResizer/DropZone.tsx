@@ -41,8 +41,8 @@ const Dropzone = ({ onFileSelected }: Props) => {
       </div>
 
       <p className="ir-hint">
-        Přetáhni obrázek sem nebo{" "}
-        <span className="ir-browse">vyber soubor</span>
+        Drag and drop an image here or{" "}
+        <span className="ir-browse">choose a file</span>
       </p>
 
       <Button
@@ -52,7 +52,7 @@ const Dropzone = ({ onFileSelected }: Props) => {
           openFileDialog();
         }}
       >
-        Vybrat obrázek
+        Select image
       </Button>
 
       <p className="ir-formats">{ACCEPTED_FORMATS_LABEL}</p>

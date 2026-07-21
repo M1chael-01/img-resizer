@@ -8,9 +8,9 @@ type Props = {
 const EmptyState = ({ onFileSelected }: Props) => {
   return (
     <div className="ir-wrap">
-      <h1 className="ir-title">Změnit velikost obrázku</h1>
+      <h1 className="ir-title">Resize Image</h1>
       <p className="ir-subtitle">
-        Nahraj obrázek a uprav jeho rozměry přesně podle potřeby.
+        Upload an image and adjust its dimensions exactly as needed.
       </p>
       <Dropzone onFileSelected={onFileSelected} />
     </div>

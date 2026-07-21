@@ -8,11 +8,11 @@ type Props = {
 const EditorHeader = ({ onReset }: Props) => (
   <div className="ir-editor-head">
     <div>
-      <h1 className="ir-title">Změnit velikost obrázku</h1>
-      <p className="ir-subtitle">Uprav rozměry a stáhni výsledek.</p>
+      <h1 className="ir-title">Resize Image</h1>
+      <p className="ir-subtitle">Adjust dimensions and download the result.</p>
     </div>
     <Button variant="reset" onClick={onReset}>
-      Nahrát jiný obrázek
+      Upload different image
     </Button>
   </div>
 );
