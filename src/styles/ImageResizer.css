@@ -254,7 +254,6 @@
   font-size: 0.95rem;
   color: #111111;
   background: transparent;
-  -moz-appearance: textfield;
 }
 
 .ir-field-input input::-webkit-outer-spin-button,
